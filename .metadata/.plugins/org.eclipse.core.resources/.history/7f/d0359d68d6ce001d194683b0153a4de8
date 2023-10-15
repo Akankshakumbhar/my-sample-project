@@ -1,0 +1,31 @@
+package Cab_Booking;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+
+
+public class View_Booked_Pacakage  extends JFrame
+{
+Font f;
+JTable t1;
+String x[]=("Book ID","Username"," Name","Driver Name","Source","Destination","Price");
+String y[][]=new String [20][10];
+int i=0,j=0;
+
+View_Booked_Pacakage ()
+{
+	super("All Booked truck records");
+	setSize(1300,400);
+	setLocation(0,10);
+	f=new Font("Arial",Font.BOLD,17);
+	try
+	{
+		
+	}
+	
+}
+
+
+}

@@ -1,0 +1,35 @@
+package Cab_Booking;
+import java.sql.*;
+public class ConnectionClass
+{
+	Connection con;
+	Statement stm;
+	ConnectionClass()
+	{
+		try
+		{
+			Class.forName("org.postgresql.Driver");
+			con=DriverManager.getConnection("jdbc:postgresql:signup","postgres","");
+			stm=con.createStatement();
+			if(con==null)
+			{
+				System.out.println("closed");
+				
+			}
+			else
+			{
+				System.out.println("no");
+			}
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	public static void main(String args[])
+	{
+		new ConnectionClass();
+	}
+}

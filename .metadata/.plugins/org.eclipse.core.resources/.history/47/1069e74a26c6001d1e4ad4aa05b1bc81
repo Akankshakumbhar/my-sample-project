@@ -1,0 +1,134 @@
+package Cab_Booking;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.sql.*;
+
+
+public class SignUp  extends JFrame implements ActionListener
+{
+	JFrame f;
+	JLabel l1,l2,l3,l4,l5;
+	JButton bt1,bt2;
+	JTextField t1,t2,t3;
+	JPasswordField p1;
+	
+	
+	
+	SignUp()
+	{
+		f=new JFrame("create new Account");
+		f.setBackground(Color.cyan);
+		f.setLayout(null);
+		
+		l1=new JLabel("UserName");
+		l1.setBounds(400,20,100,30);
+		f.add(l1);
+		
+		l2=new JLabel("Name");
+		l2.setBounds(40,70,100,30);
+		f.add(l2);
+		
+		l3=new JLabel("Password");
+		l3.setBounds(40,120,100,30);
+		f.add(l3);
+		
+		l4=new JLabel("Phone Number");
+		l4.setBounds(10,170,100,30);
+		f.add(l4);
+		
+		t1=new JTextField();
+		t1.setBounds(150,20,150,30);
+		f.add(t1);
+		
+		t2=new JTextField();
+		t2.setBounds(150,70,150,30);
+		f.add(t2);
+		
+		t3=new JTextField();
+		t3.setBounds(150,170,150,30);
+		f.add(t3);
+		
+		
+		p1=new JPasswordField();
+		p1.setBounds(150,120,150,30);
+		f.add(p1);
+		
+		ImageIcon i1=new ImageIcon(ClassLoader.getSystemResource("Cab_Booking/Icons/SignUp.jpeg"));
+		Image i2=i1.getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT);
+		ImageIcon i3=new ImageIcon(i2);
+		JLabel l5=new JLabel(i3);
+		l5.setBounds(350,70,150,150);
+		f.add(l5);
+		
+		bt1=new JButton("SignUp");
+		bt1.setBackground(Color.BLUE);
+		bt1.setForeground(Color.WHITE);
+		bt1.setBounds(40,240,120,30);
+		
+		
+		bt2=new JButton("Back");
+		bt2.setBackground(Color.BLUE);
+		bt2.setForeground(Color.WHITE);
+		bt2.setBounds(40,240,120,30);
+		
+		bt1.addActionListener(this);
+		bt2.addActionListener(this);
+		f.add(bt1);
+		f.add(bt2);
+	}
+	public void actionPerformed(ActionEvent ee)
+	{
+		if(ee.getSource()==bt1)
+		{
+			String username=t1.getText();
+			String name=t2.getText();
+			String password=p1.getText();
+			String Phone=t3.getText();
+			try
+			{
+				ConnectionClass obj=new ConnectionClass();
+				String q="insert into signup values('"+username+",'"+name+"','"+password+"','"+Phone+"')";
+				int aa=obj.stm.executeUpdate(q);
+				if(aa==1)
+				{
+					JOptionPane.showMessageDialog(null, "Account Created Sucessfully");
+					this.setVisible(false);
+					new Login();
+					
+					
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Please!,fill all Details carefully");
+					this.setVisible(false);
+					this.setVisible(true);
+			
+					
+				}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			
+			}
+			
+			
+		}
+		
+		if(ee.getSource()==bt2)
+		{
+			this.f.setVisible(false);
+			new Login();
+		}
+	}
+	
+	
+	public static void main(String args[])
+	{
+		new SignUp();
+		
+	}
+	
+		
+		

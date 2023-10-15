@@ -1,0 +1,16 @@
+
+Mar 23, 2023 11:21:46.11 NEW SESSION
+Mar 23, 2023 11:21:46.11 [4864:4864:0323/112144.911801:ERROR:process_singleton_posix.cc(280)] Failed to create /root/.config/google-chrome/SingletonLock: File exists (17)
+Mar 23, 2023 11:21:46.12 [4848:4848:0323/112145.949954:ERROR:process_singleton_posix.cc(280)] Failed to create /root/.config/google-chrome/SingletonSocket: File exists (17)
+Mar 23, 2023 11:21:46.13 [4848:4848:0323/112145.950517:ERROR:process_singleton_posix.cc(1030)] Failed to create symlinks.
+Mar 23, 2023 11:22:06.68 [4826:5025:0323/112206.049661:ERROR:database.cc(1632)] History sqlite error 5, errno 0: database is locked, sql: DELETE FROM meta WHERE key=?
+Mar 23, 2023 11:22:08.23 [4834:5021:0323/112206.050230:ERROR:database.cc(1632)] History sqlite error 5, errno 0: database is locked, sql: COMMIT
+Mar 23, 2023 11:22:08.23 [4812:5023:0323/112206.049719:ERROR:database.cc(1632)] History sqlite error 5, errno 0: database is locked, sql: DELETE FROM meta WHERE key=?
+Mar 23, 2023 11:22:08.23 [4859:5029:0323/112206.058415:ERROR:database.cc(1632)] History sqlite error 5, errno 0: database is locked, sql: DELETE FROM meta WHERE key=?
+Mar 23, 2023 11:22:11.27 [4834:5022:0323/112211.279564:ERROR:model_type_store_service_impl.cc(38)] Failed to initialize ModelTypeStore backend: Init@../../components/sync/model_impl/model_type_store_backend.cc:71: IO error: /root/.config/google-chrome/Default/Sync Data/LevelDB/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+Mar 23, 2023 11:22:11.28 [4812:5023:0323/112211.283597:ERROR:model_type_store_service_impl.cc(38)] Failed to initialize ModelTypeStore backend: Init@../../components/sync/model_impl/model_type_store_backend.cc:71: IO error: /root/.config/google-chrome/Default/Sync Data/LevelDB/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+Mar 23, 2023 11:22:11.30 [4859:5029:0323/112211.302709:ERROR:model_type_store_service_impl.cc(38)] Failed to initialize ModelTypeStore backend: Init@../../components/sync/model_impl/model_type_store_backend.cc:71: IO error: /root/.config/google-chrome/Default/Sync Data/LevelDB/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+Mar 23, 2023 11:22:14.88 [4848:5027:0323/112214.878701:ERROR:crash_handler_host_linux.cc(445)] Failed to write crash dump for pid 5059
+Mar 23, 2023 11:22:23.64 [4826:4952:0323/112223.640394:ERROR:service_worker_storage.cc(1573)] Failed to delete the database: Database IO error
+Mar 23, 2023 11:22:23.64 [4812:4916:0323/112223.646982:ERROR:service_worker_storage.cc(1573)] Failed to delete the database: Database IO error
+Mar 23, 2023 11:22:23.64 [4834:4953:0323/112223.645216:ERROR:service_worker_storage.cc(1573)] Failed to delete the database: Database IO error
