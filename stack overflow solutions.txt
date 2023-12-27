@@ -1,0 +1,95 @@
+stack overflow
+user=pandas.read_csv(r"C:\Users\Star\Desktop\dataScience expotent files\User.csv")
+>>> print(user)
+           id  reputation          displayname           location   age
+0      382275        2792                Steve       West Linn OR  48.0
+1      382276          21                Yoshi      United States   NaN
+2      382277          21                Nancy                NaN   NaN
+3      382278          39           hanguofeng                NaN   NaN
+4      382279         612           jalagrange                NaN  28.0
+...       ...         ...                  ...                ...   ...
+49995  118593         790  Tautrimas Pajarskas  Vilnius Lithuania  25.0
+49996  118597        1024                 GivP   San Francisco CA   NaN
+49997  118605          86               Balaji              India  31.0
+49998  118606        2604               Lohrun       Paris France  31.0
+49999  118608         300                  qff                NaN   NaN
+
+[50000 rows x 5 columns]
+
+>>> posttype=pandas.read_csv(r"C:\Users\Star\Desktop\dataScience expotent files\posttypes.csv")
+>>> print(posttype)
+   id                 name
+0   1             Question
+1   2               Answer
+2   3                 Wiki
+3   4       TagWikiExcerpt
+4   5              TagWiki
+5   6  ModeratorNomination
+6   7      WikiPlaceholder
+7   8        PrivilegeWiki
+
+ Post=pandas.read_csv(r"C:\Users\Star\Desktop\dataScience expotent files\ppost.csv",encoding='latin1')
+>>> print(Post)
+          id  post_type      creationdate  score  viewcount  ...  answercount commentcount Unnamed: 9 Unnamed: 10  Unnamed: 11
+0          4          1  31-07-2008 21:42    222    13150.0  ...           13           34        NaN         NaN          NaN
+1          6          1  31-07-2008 22:08     98     6691.0  ...            5           12        NaN         NaN          NaN
+2          7          2  31-07-2008 22:17    176        NaN  ...          NaN            0        NaN         NaN          NaN
+3          8          1  31-07-2008 23:33     30     2432.0  ...            3            0        NaN         NaN          NaN
+4          9          1  31-07-2008 23:40    582   133946.0  ...           37            4        NaN         NaN          NaN
+...      ...        ...               ...    ...        ...  ...          ...          ...        ...         ...          ...
+49995  79673          2  17-09-2008 03:31      2        NaN  ...          NaN          NaN        NaN         NaN          NaN
+49996  79674          2  17-09-2008 03:31      1        NaN  ...          NaN          NaN        NaN         NaN          NaN
+49997  79675          2  17-09-2008 03:31      2        NaN  ...          NaN            2        NaN         NaN          NaN
+49998  79676          2  17-09-2008 03:32      9        NaN  ...          NaN          NaN        NaN         NaN          NaN
+49999  79677          1  17-09-2008 03:32     16     9817.0  ...            9            1        NaN         NaN          NaN
+
+[50000 rows x 12 columns]
+>>> comment=pandas.read_csv(r"C:\Users\Star\Desktop\dataScience expotent files\comments.csv")
+>>> print(comment)
+             id  userid
+0      15494835  134554
+1      15494875   11480
+2      15494879  104891
+3      15494920   29407
+4      15494921   64174
+...         ...     ...
+49995  16033697   44309
+49996  16033699  139985
+49997  16033700    6782
+49998  16033702   68172
+49999  16033706   22656
+
+[50000 rows x 2 columns]
+>>> Find avg age of  user  on stack
+d2=duckdb.query("select avg(age) from user").df()
+>>> print(d2)
+    avg(age)
+0  35.263352
+                       >>> display name of user who posted oldest post on stack in terms of date
+?????d2=duckdb.query("select a.displayname  ,b.creationdate  from user a , Post b  where a.id=b.id order by creationdate asc limit 1").df()
+>>> print(d2)
+          displayname      creationdate
+0  Chris Jester-Young  01-08-2008 00:42
+>>>                        display owner name,id from user whoes no of viewcount is maximum
+d2=duckdb.query("select a.displayname ,b.owneruserid  from user a, Post b where a.id=b.id order by b.viewcount desc limit 2").df()
+>>> print(d2)
+  displayname  owneruserid
+0        lost          244
+1      z-boss         2680
+>>> d2=duckdb.query("select a.displayname ,b.owneruserid ,b.viewcount  from user a, Post b where a.id=b.id order by b.viewcount desc limit 2").df()
+>>> print(d2)
+  displayname  owneruserid  viewcount
+0        lost          244   758492.0
+1      z-boss         2680   390016.0
+>>> find title  and name of owner who has got max no  of comment count
+d2=duckdb.query("select a.displayname,b.title ,b.commentcount from user a ,Post b  where a.id=b.id order by b.commentcount desc limit 1").df()
+>>> print(d2)
+     displayname title commentcount
+0  Danny Tuppeny  None            9
+>>>       ?????find location  which has max  no  of users
+d2=duckdb.query("select location,count(*) from user group by location order by count(*) desc limit 1").df()
+>>> print(d2)
+  location  count_star()
+0     None         20209
+                        find total number of answer ,posts,comments created by Indian user 
+
