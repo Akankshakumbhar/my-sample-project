@@ -1,0 +1,172 @@
+ import pandas
+>>> data=pandas.read_csv(r 'C:\Users\Star\Desktop\dataScience expotent files\filenew.csv')
+  File "<stdin>", line 1
+    data=pandas.read_csv(r 'C:\Users\Star\Desktop\dataScience expotent files\filenew.csv')
+                                                                                         ^
+SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape
+>>> data=pandas.read_csv(r"C:\Users\Star\Desktop\dataScience expotent files\filenew.csv")
+>>> print(data)
+              vid                    uv  dayofest        category  lenvd  numberview  ...    vedioid15    vedioid16    vedioid17    vedioid18    vedioid19    vedioid20
+0     QuRYeRnAuXM  EvilSquirrelPictures    1135.0  Pets & Animals  252.0      1075.0  ...          NaN          NaN          NaN          NaN          NaN          NaN
+1     3TYqkBJ9YRk                hggh22    1135.0          Comedy  169.0       228.0  ...  1GKaVzNDbuI  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU  2l6vwAIAqNU
+2     rSJ8QZWBegU               TimeGem    1135.0   Entertainment   95.0       356.0  ...  zQ83d_D2MGs  1GKaVzNDbuI  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU
+3     nRcovJn9xHg            wooochacha    1135.0   Entertainment  118.0      1115.0  ...  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU  2l6vwAIAqNU  WWqed9u6rr4
+4     UEvVksP91kg              johnx113    1135.0   Entertainment   83.0       281.0  ...  1GKaVzNDbuI  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU  2l6vwAIAqNU
+...           ...                   ...       ...             ...    ...         ...  ...          ...          ...          ...          ...          ...          ...
+4095  esCvu46qDaA                 RSMFD     863.0   Entertainment   63.0    116929.0  ...          NaN          NaN          NaN          NaN          NaN          NaN
+4096  kOZ8bRAO7YQ         RockstarGames       0.0            UNA    63.0    199361.0  ...          NaN          NaN          NaN          NaN          NaN          NaN
+4097  GSsVZcKHues               GTASite    1024.0   Entertainment  123.0    486752.0  ...          NaN          NaN          NaN          NaN          NaN          NaN
+4098  foKRqJGcbPQ       scrambledeggsTV    1100.0   Entertainment  136.0     13115.0  ...  vOskZNJJII8  buHrlMJu2Ss  bhLbFGVduTA  YDgd4V0ILNw  UTYMb79BPGc  47EWHY3E5AM
+4099       #NAME?               rehab07     771.0   Entertainment  186.0    103556.0  ...  buHrlMJu2Ss  M80K51DosFo  k6kRNFWhZi4  UTYMb79BPGc  LzI9VyIjpDI  nxz3lIpLarE
+
+[4100 rows x 29 columns]
+>>> import duckdb
+>>> data1=duckdb.query("select * from data where ratting=5").df()
+>>> print(data1)
+             vid               uv  dayofest          category  lenvd  numberview  ...    vedioid15    vedioid16    vedioid17    vedioid18    vedioid19    vedioid20
+0    3TYqkBJ9YRk           hggh22    1135.0            Comedy  169.0       228.0  ...  1GKaVzNDbuI  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU  2l6vwAIAqNU
+1    YZev1imoxX8  threefirstnames    1135.0     Entertainment  253.0        63.0  ...  IZIhyhuI9qo  Fn7y32rKeg0  7NJeRscqHY8  SE970HW51Ww  LhTObkBZJTM  kA-u0x73vi0
+2    dh6dF1XY3uI       Ffllaanndd    1090.0     Entertainment  249.0       146.0  ...         None         None         None         None         None         None
+3    gP0jnBrVEpI   NoodleStroodel    1069.0  Film & Animation  107.0       161.0  ...         None         None         None         None         None         None
+4    geUY_esOrt0      samsarajade    1108.0            Comedy  218.0       664.0  ...         None         None         None         None         None         None
+..           ...              ...       ...               ...    ...         ...  ...          ...          ...          ...          ...          ...          ...
+750  QkauuMmDQBQ           AsikTV     989.0     Entertainment   52.0      3725.0  ...  6t0Ks7e5NJM  6NSoOZBvN5c  gZuMHrjrd1U  rA7HuZxa450  wzdQoJb5OFs  XHPCcdgoXeM
+751  i4QdWYCoLYs        ansizim14    1086.0  Film & Animation  217.0       923.0  ...  JPfW0zjTPk4  Sf_mldqnQ-Q  k7x3qL4FIrA  KbC5Ioi7rxY  b3lXvFnGeZE  gNbm8abLwFI
+752  sfDhYXcFXjQ        ansizim14    1084.0  Film & Animation  221.0      1780.0  ...  Dpxe8x0VWDs  U_7JHrP8rKk  l7r-R4RRgIY  RAXgcidIz5E  rffBFTwNAsw  yXrOVlErAxI
+753  lD3GuCoJxT4       leetvideos    1128.0         Education  161.0       337.0  ...  Uea8k5sJ5qg  2-JJf6XSTiI  dDmKfT4J_FM  mU2FCSDcX6E  WtUQkWb9OnA  vrq-h_H9Qwg
+754  wzUyV42Izz4        ELmaDDDin    1082.0     Entertainment  466.0       283.0  ...         None         None         None         None         None         None
+
+[755 rows x 29 columns]
+>>> d=duckdb.query("select category from data group by category").df()
+>>> print(d)
+                 category
+0          Pets & Animals
+1                   Music
+2                    None
+3    Science & Technology
+4   Nonprofits & Activism
+5           Entertainment
+6                    UNA
+7                  Comedy
+8         News & Politics
+9        Film & Animation
+10          Howto & Style
+11              Education
+12         People & Blogs
+13                 Sports
+14       Autos & Vehicles
+15        Travel & Events
+>>> data1=duckdb.query("select category,count(vid)as t from data group by category  order by t desc limit 5").df()
+>>> print(data1)
+          category    t
+0    Entertainment  908
+1            Music  862
+2           Comedy  414
+3   People & Blogs  398
+4  News & Politics  333
+>>> d2=duckdb.query("select vid,numberofrate from data order by numberofrate desc limit 10").df()
+>>> print(d2)
+           vid  numberofrate
+0  kHmvkRoEowc      122129.0
+1  EwTZ2xpQwpA       83514.0
+2  rZBA0SKmQy8       75004.0
+3  4DC4Rb9quKk       73257.0
+4  LU8DDYz68kM       58850.0
+5  Qit3ALTelOo       56767.0
+6  irp8CNj9qBI       43774.0
+7  3QL97xldoXc       37247.0
+8  LTxO_pgMqys       35352.0
+9  Md6rURKhZmA       34802.0
+>>> d3=duckdb.query("select vid,numberview from data order by numberview desc limit 1").df()
+>>> print(d3)
+           vid  numberview
+0  12Z3J1uzd0Q  65341925.0
+>>> d3=duckdb.query("select vid,numberview from data order by numberview desc limit 5").df()
+>>> print(d3)
+           vid  numberview
+0  12Z3J1uzd0Q  65341925.0
+1  4DC4Rb9quKk  33754615.0
+2  LU8DDYz68kM  27721690.0
+3  kHmvkRoEowc  18235463.0
+4  Md6rURKhZmA  18141492.0
+>>> data4=duckdb.query("select * from data where category="comedy"").df()
+  File "<stdin>", line 1
+    data4=duckdb.query("select * from data where category="comedy"").df()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>> data4=duckdb.query("select * from data where category='comedy'").df()
+>>> print(data4)
+Empty DataFrame
+Columns: [vid, uv, dayofest, category, lenvd, numberview, ratting, numberofrate, numberofcomments, vedioid1, vedioid2, vedioid3, vedioid4, vedioid5, vedioid6, vedioid7, vedioid8, vedioid9, vedioid10, vedioid11, vedioid12, vedioid13, vedioid14, vedioid15, vedioid16, vedioid17, vedioid18, vedioid19, vedioid20]
+Index: []
+>>> data6=duckdb.query("select vid,category from data order by ratting asc limit 5").df()
+>>> print(data6)
+           vid          category
+0  ZTopArY7Nbg     Entertainment
+1  ShhClb6J-NA     Entertainment
+2  kIxj9S6jiB4  Film & Animation
+3  e5L0hW2Dj10             Music
+4  UmAa8JTm1Cc             Music
+>>> d1=duckdb.query("select * from data where ratting=5").df()
+>>> print(d1)
+             vid               uv  dayofest          category  lenvd  numberview  ...    vedioid15    vedioid16    vedioid17    vedioid18    vedioid19    vedioid20
+0    3TYqkBJ9YRk           hggh22    1135.0            Comedy  169.0       228.0  ...  1GKaVzNDbuI  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU  2l6vwAIAqNU
+1    YZev1imoxX8  threefirstnames    1135.0     Entertainment  253.0        63.0  ...  IZIhyhuI9qo  Fn7y32rKeg0  7NJeRscqHY8  SE970HW51Ww  LhTObkBZJTM  kA-u0x73vi0
+2    dh6dF1XY3uI       Ffllaanndd    1090.0     Entertainment  249.0       146.0  ...         None         None         None         None         None         None
+3    gP0jnBrVEpI   NoodleStroodel    1069.0  Film & Animation  107.0       161.0  ...         None         None         None         None         None         None
+4    geUY_esOrt0      samsarajade    1108.0            Comedy  218.0       664.0  ...         None         None         None         None         None         None
+..           ...              ...       ...               ...    ...         ...  ...          ...          ...          ...          ...          ...          ...
+750  QkauuMmDQBQ           AsikTV     989.0     Entertainment   52.0      3725.0  ...  6t0Ks7e5NJM  6NSoOZBvN5c  gZuMHrjrd1U  rA7HuZxa450  wzdQoJb5OFs  XHPCcdgoXeM
+751  i4QdWYCoLYs        ansizim14    1086.0  Film & Animation  217.0       923.0  ...  JPfW0zjTPk4  Sf_mldqnQ-Q  k7x3qL4FIrA  KbC5Ioi7rxY  b3lXvFnGeZE  gNbm8abLwFI
+752  sfDhYXcFXjQ        ansizim14    1084.0  Film & Animation  221.0      1780.0  ...  Dpxe8x0VWDs  U_7JHrP8rKk  l7r-R4RRgIY  RAXgcidIz5E  rffBFTwNAsw  yXrOVlErAxI
+753  lD3GuCoJxT4       leetvideos    1128.0         Education  161.0       337.0  ...  Uea8k5sJ5qg  2-JJf6XSTiI  dDmKfT4J_FM  mU2FCSDcX6E  WtUQkWb9OnA  vrq-h_H9Qwg
+754  wzUyV42Izz4        ELmaDDDin    1082.0     Entertainment  466.0       283.0  ...         None         None         None         None         None         None
+
+[755 rows x 29 columns]
+>>> d1=duckdb.query("select * from data where category='Comedy'").df()
+>>> print(d1)
+             vid                 uv  dayofest category  lenvd  numberview  ...    vedioid15    vedioid16    vedioid17    vedioid18    vedioid19    vedioid20
+0    3TYqkBJ9YRk             hggh22    1135.0   Comedy  169.0       228.0  ...  1GKaVzNDbuI  yuZhwV24PmM  DomumdGQSg8  hiSmlmXp-aU  pFUYi7dp1WU  2l6vwAIAqNU
+1    HT_QlOJbDpg  dumbasstheredneck    1095.0   Comedy   14.0      1349.0  ...  Z0B1Wyif7SY  LsqJt_6_394  FGwYlB3c1s8  mCLw4iGZ7Ms  8-jfN16aXo4  4qa3Pfy-7O0
+2    g9e1alirMhc     iamdanielisaac     541.0   Comedy  152.0    483053.0  ...  En60GZQ09PM  p9CypIsNSvM  yuZhwV24PmM  LRVZVnNN-T4  l7dmafUC-Fg  m-DqD1_ryhs
+3    1GKaVzNDbuI            fatvids     690.0   Comedy  176.0   2464486.0  ...  41APzy5kqBU  GiMAIPQo-m8  97cWs8tW8mY  J5z4Vs26-TI  gMuxyRbNLFM  iJGiiiPEHZ0
+4    zQ83d_D2MGs  dumbasstheredneck    1095.0   Comedy   14.0      1550.0  ...  exL0aHDxHzI  zdK72SqMShk  rFD2NNTMZNw  8-jfN16aXo4  hT1iqvQN0Ho  r3sxMVgo490
+..           ...                ...       ...      ...    ...         ...  ...          ...          ...          ...          ...          ...          ...
+409  VuDmxYAirXE         tkoslowski     917.0   Comedy  428.0     38076.0  ...  UqhAIFD9M3I  qUalITenbRw  9ec5KeJdg7c  gRtkGnMrgUw  uCzJ4hxiWpM  cwm0YXYA9pc
+410  wWW8R58R8qs   tripledudemotion     391.0   Comedy  727.0      1264.0  ...       #NAME?  Q6fAVMacYnk  4s3bJ7ppW4s  n72cCLjJ6mg  Mjh22NUpha8  YkidS0Wb_fA
+411  b-Tbc0dyq1Q         tkoslowski     863.0   Comedy  450.0     23087.0  ...  44F38LNSGiU  Cp2k1dNT4qU  cYakgDR4Ub0  0poGRZDiCOI  w65X1WrpCWo  dfX5WkQoXYI
+412  ZCYaw5tGYAs           nozzle49     529.0   Comedy   80.0   8944331.0  ...  _xDghiPswLM  gW-r-2VAkK8  7UHKB6nQrzM  FiNUkDnDMFA  Hdy_5kx5p24  nojWJ6-XmeQ
+413  5-reBn0gUkg             Ortmon    1064.0   Comedy  547.0    336956.0  ...  Ghx_A7gQbT8  wQH1ui1QS4Y  zfhZfSVuup4  ZnYursz7-aY  hKSk1bW9qzw  2dVbuMn7s_8
+
+[414 rows x 29 columns]
+>>> data0=duckdb.query("select vid,category,uv from data group by category order by uv desc limit 5").df()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+duckdb.duckdb.BinderException: Binder Error: column "vid" must appear in the GROUP BY clause or must be part of an aggregate function.
+Either add it to the GROUP BY list, or use "ANY_VALUE(vid)" if the exact value of "vid" is not important.
+>>> data0=duckdb.query("select category,uv from data group by category order by uv desc limit 5").df()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+duckdb.duckdb.BinderException: Binder Error: column "uv" must appear in the GROUP BY clause or must be part of an aggregate function.
+Either add it to the GROUP BY list, or use "ANY_VALUE(uv)" if the exact value of "uv" is not important.
+>>> data0=duckdb.query("select uv from data order by uv desc limit 5").df()
+>>> print(data0)
+           uv
+0  zzzzzzzzap
+1   zulker911
+2   zulchzulu
+3   zulchzulu
+4    zpmiente
+>>> y=duckdb.query("select category,count(vid) from data group by category order by vid limit 4").df()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+duckdb.duckdb.BinderException: Binder Error: column "vid" must appear in the GROUP BY clause or must be part of an aggregate function.
+Either add it to the GROUP BY list, or use "ANY_VALUE(vid)" if the exact value of "vid" is not important.
+>>> y=duckdb.query("select category,count(vid) as t from data group by category order by t limit 4").df()
+>>> print(y)
+                category   t
+0                   UNA   32
+1                   None  34
+2  Nonprofits & Activism  42
+3              Education  65
+>>>
