@@ -1,0 +1,182 @@
+*{
+  margin:0;
+  padding:0;
+
+
+}
+a{
+  color:green;
+}
+a{
+  color:#ff517f;
+}
+a:hover{
+  color:pink;
+}
+a:active{
+  color:#ff512f;
+}
+body{
+font-family: 'Merriweather', serif;
+background-color:#f9fafc;
+}
+.navbar{
+  display:flex;
+  align-item:center;
+  justify-content: space-spacce-space-around;
+
+}
+.navbar_brand{
+  width:100px;
+}
+.navbar_logo{
+  width:100%;
+}
+.nav_item
+{
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #dd2476 51%,
+    #ff512f 100%
+    );
+    color:#fff;
+    border:none;
+    padding:12px;
+    border-radius:6px;
+    font-weight:600;
+
+
+}
+.nav_item:hover{
+  border:2px solid #FF6767;
+  cursor:pointer;
+}
+.container{
+
+padding:20px;
+
+}
+.hero_image_container{
+  width:100%;
+}
+.hero_image{
+  width:100%;
+  border-radius:5px;
+}
+.hero_text{
+  font-weight: 1000px;
+  font-size:32px;
+  margin:20px 0;
+  color:#1d3557;
+
+}
+.explore_menu_text
+{
+  font-size: 48px;
+}
+
+.button_primary
+{
+  background-image: linear-gradient(
+    to left,
+    #ff512f 0%,
+    #dd2476 51%,
+    #ff512f 100%
+    );
+    color:#fff;
+    border:none;
+    padding:12px;
+    border-radius:6px;
+    font-weight:600;
+
+}
+
+.food_card_description
+{
+  padding:2px;
+}
+.food_card
+{
+  background-color: #F0F3FF;
+}
+.food_card_image
+{
+  width: :50%;
+
+}
+.food_image
+{
+  width:100%;
+  border-radius: 8px 8px 0 0 ;
+}
+.explore_menu_text
+{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size:32px;
+  color:#1d3557;
+}
+@media(min-width:768px)
+{
+  .explore_menu_lists
+  {
+    margin-top: 60px;
+    display: flex;
+    gap:15px;
+    padding: 0 30px;
+  }
+  .explore_menu_container{
+    position: relative;
+  }
+  .explore_menu_gradient_bg
+  {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to right,
+      #ff512f 0%,
+      #dd2476 51%,
+      #ff512f 100%
+      );
+      z-index: -3;
+      transform: skewY(-5deg);
+
+  }
+  #pizza_card
+  {
+    margin-top: -20px;
+    margin-bottom: 30px;
+  }
+  .navbar{
+    justify-content: space-between;
+    padding:10px 30px;
+    background-color: #fff;
+
+  }
+
+@media(min-width:1024px)
+{
+  .container
+  {
+    max-width: 70%;
+  }
+  .explore_menu_lists
+  {
+
+    gap:25px;
+  }
+  .navbar_brand
+  {
+    width:150px;
+  }
+  .nav_item{
+    padding:20px;
+    font-size:20px;
+
+  }
+}
